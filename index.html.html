@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faragó Ábel Weboldal</title>
+    <style>
+        body {
+            font-family: Trebuchet MS, sans-serif;
+            background-color: white;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        header img {
+            width: 425px;
+            height: auto;
+        }
+
+        nav {
+            background-color: #dcdcdc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 0px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+		iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="bankilogo.png" alt="Logo helye" />
+		<h1>Faragó Ábel Portfólió</h1>
+    </header>
+
+    <nav>
+	
+        <a href="#" class="active" onclick="changePage('fooldal')">Főoldal</a>
+		<b>11. osztály</b>
+        <a href="#" onclick="changePage('elektrotechnika')">Elektrotechnika</a>
+        <a href="#" onclick="changePage('mikrokontroller')">Mikrovezérlő programozás</a>
+        <a href="#" onclick="changePage('programozas')">Programozás alapjai</a>
+        <a href="#" onclick="changePage('digitalis')">Digitális áramkörök</a>
+		<p></p>
+		<b>12. osztály</b>
+        <a href="#" onclick="changePage('adatbazis')">Adatbáziskezelés alapjai</a>
+		<a href="#" onclick="changePage('halozat')">Hálózatkezelés</a>
+        <a href="#" onclick="changePage('plcprogramozas')">PLC programozás</a>
+        <a href="#" onclick="changePage('szimulacio')">Számítógépes szimuláció</a>
+		<p></p>
+		<b>13. osztály</b>
+        <a href="#" onclick="changePage('munkavallalo')">Munkavállalói idegen nyelv</a>
+        <a href="#" onclick="changePage('iot')">IoT</a>
+        <a href="#" onclick="changePage('fejlesztes')">Programfejlesztés</a>
+        <a href="#" onclick="changePage('robot')">Robottechnika, CAD/CAM</a>
+    </nav>
+
+    <section id="content">
+        <h2>Üdvözlöm a weboldalamon!</h2>
+    </section>
+
+    <footer>
+        <p>Készítette: Faragó Ábel &copy; 2025 </p>
+    </footer>
+
+    <script>
+        function changePage(page) {
+            const links = document.querySelectorAll("nav a");
+            links.forEach(link => link.classList.remove("active"));
+            const activeLink = document.querySelector(`nav a[href="#"][onclick="changePage('${page}')"]`);
+            activeLink.classList.add("active");
+
+            const content = document.getElementById("content");
+            switch(page) {
+				case 'fooldal':
+                    content.innerHTML = '<h2>Üdvözlöm a weboldalamon!</h2>';
+                    break;
+                case 'halozat':
+                    content.innerHTML = '<h2>Hálózatkezelés</h2><iframe src="https://dufoffice365-my.sharepoint.com/personal/72515769488_tanulo_bankisuli_hu/_layouts/15/Doc.aspx?sourcedoc={835522de-7424-4808-a2fa-b8dc37f7d3eb}&amp;action=embedview" width="476px" height="288px" frameborder="0">Ez egy beágyazott <a target="_blank" href="https://office.com">Microsoft Office</a>-dokumentum, amelynek szolgáltatója a(z) <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>';
+                    break;
+                case 'munkavallalo':
+                    content.innerHTML = '<h2>Munkavállalói idegen nyelv</h2>';
+                    break;
+                case 'mikrokontroller':
+                    content.innerHTML = '<h2>Mikrovezérlő programozás</h2><iframe src="https://dufoffice365-my.sharepoint.com/personal/72515769488_tanulo_bankisuli_hu/_layouts/15/Doc.aspx?sourcedoc={f1fd3b11-12b4-497c-9018-24d6486b3ffa}&amp;action=embedview" width="476px" height="288px" frameborder="0">Ez egy beágyazott <a target="_blank" href="https://office.com">Microsoft Office</a>-dokumentum, amelynek szolgáltatója a(z) <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>';
+                    break;
+                case 'elektrotechnika':
+                    content.innerHTML = '<h2>Elektrotechnika</h2><iframe src="https://dufoffice365-my.sharepoint.com/personal/72515769488_tanulo_bankisuli_hu/_layouts/15/Doc.aspx?sourcedoc={ffdea2c8-ab63-4437-9762-c89eb439c915}&amp;action=embedview" width="476px" height="288px" frameborder="0">Ez egy beágyazott <a target="_blank" href="https://office.com">Microsoft Office</a>-dokumentum, amelynek szolgáltatója a(z) <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>';
+                    break;
+                case 'iot':
+                    content.innerHTML = '<h2>IoT</h2><p>Ez az oldal az IoT dokumentációról fog szólni.</p>';
+                    break;
+                case 'adatbazis':
+                    content.innerHTML = '<h2>Adatbázis kezelés</h2><p>Ez az oldal az adatbázis kezelés dokumentációról fog szólni.</p>';
+                    break;
+				case 'digitalis':
+                    content.innerHTML = '<h2>Digitális áramkörök</h2><p>Ez az oldal a digitális dokumentációról fog szólni.</p>';
+                    break;
+				case 'programozas':
+                    content.innerHTML = '<h2>Programozás alapjai</h2><p>Ez az oldal a programozás dokumentációról fog szólni.</p>';
+                    break;
+				case 'fejlesztes':
+                    content.innerHTML = '<h2>Programfejlesztés</h2><p>Ez az oldal a programfejlesztés dokumentációról fog szólni.</p>';
+                    break;
+				case 'plcprogramozas':
+                    content.innerHTML = '<h2>PLC programozás</h2><p>Ez az oldal a PLC programozás dokumentációról fog szólni.</p>';
+                    break;
+				case 'szimulacio':
+                    content.innerHTML = '<h2>Számítógépes szimuláció</h2><p>Ez az oldal a számítógépes szimuláció dokumentációról fog szólni.</p>';
+                    break;
+				case 'robot':
+                    content.innerHTML = '<h2>Robottechnika, CAD/CAM</h2><p>Ez az oldal a robottechnika, CAD/CAM dokumentációról fog szólni.</p>';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
